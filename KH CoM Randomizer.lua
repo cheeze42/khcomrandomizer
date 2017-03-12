@@ -36,7 +36,7 @@ ether={name="Ether",id=0x19A,cp={38,20,22,24,26,28,30,32,34,36}}
 megaether={name="Mega-Ether",id=0x1A4,cp={62,35,38,41,44,47,50,53,56,59}}
 elixir={name="Elixir",id=0x1AE,cp={81,45,49,53,57,61,65,69,73,77}}
 megalixir={name="Megalixir",id=0x1B8,cp={95,50,55,60,65,70,75,80,85,90}}
- 
+
 shadow={name="Shadow",id=0x1C2,address=0xF7D638}
 soldier={name="Soldier",id=0x1C5,address=0xF7D644}
 largebody={name="Large Body",id=0x1C8,address=0xF7D680}
@@ -86,25 +86,25 @@ vexen={name="Vexen",id=0x230,address=0x96B9C} --x4
 marluxia={name="Marluxia",id=0x231,address=0x96B64}
 lexaeus={name="Lexaeus",id=0x233,address=0x18581E6}
 ansem={name="Ansem",id=0x234,address=0x18581EA}
- 
+
 --CONFIG
 --Set 02039CBC to FF, 02039CC4 to 22, and 02039CC5 to 80 for all level up sleights
 spoilers=false
 seed=0
- 
+
 oldcards={kingdomkey,threewishes,crabclaw,pumpkinhead,fairyharp,wishingstar,spellbinder,metalchocobo,olympia,lionheart,ladyluck,divinerose,oathkeeper,oblivion,diamonddust,onewingedangel,ultimaweapon,fire,blizzard,thunder,cure,gravity,stop,aero,simba,genie,bambi,dumbo,tinkerbell,mushu,cloud,potion,hipotion,megapotion,ether,megaether,elixir,megalixir}
 cards={unpack(oldcards)}
 newcards={}
- 
+
 if (seed==0) then
-    math.randomseed(os.time())
+	math.randomseed(os.time())
 else
-    math.randomseed(seed)
+	math.randomseed(seed)
 end
 math.random()
 math.random()
 math.random()
- 
+
 --TODO:
 ---Variety of randomization
 ---Proper starting deck
@@ -113,344 +113,344 @@ math.random()
 ---Double Black Fungus Enemy Card
 ---KTR in starting drop?
 ---Guard Armor still drops his own enemy card??
- 
+
 am=0
 sp=0
 bound=24
 total=38
- 
+
 defaultattack=table.remove(cards,math.random(2,17))
 am=am+1
- 
+
 defaultmagic=cure
 while defaultmagic==cure or defaultmagic==blizzard do
-    i=math.random(17,23)
-    defaultmagic=cards[i]
+	i=math.random(17,23)
+	defaultmagic=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 defaultitem=potion
 while defaultitem==potion do
-    i=math.random(30,total-(am+sp))
-    defaultitem=cards[i]
+	i=math.random(30,total-(am+sp))
+	defaultitem=cards[i]
 end
 table.remove(cards,i)
 sp=sp+1
- 
+
 defaultwild=blizzard
 while defaultwild==defaultattack or defaultwild==cure or defaultwild==blizzard or defaultwild==defaultmagic do
-    i=math.random(2,bound-am)
-    defaultwild=cards[i]
+	i=math.random(2,bound-am)
+	defaultwild=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 leonreward=simba
 while leonreward==simba do
-    i=math.random(bound-am+1,total-(am+sp))
-    leonreward=cards[i]
+	i=math.random(bound-am+1,total-(am+sp))
+	leonreward=cards[i]
 end
 table.remove(cards,i)
 sp=sp+1
- 
+
 traversetownktr=lionheart
 while traversetownktr==lionheart do
-    i=math.random(1,bound-am)
-    traversetownktr=cards[i]
+	i=math.random(1,bound-am)
+	traversetownktr=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 axelreward=fire
 while axelreward==fire do
-    i=math.random(1,bound-am)
-    axelreward=cards[i]
+	i=math.random(1,bound-am)
+	axelreward=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 agrabahattack=threewishes
 while agrabahattack==threewishes do
-    i=math.random(1,bound-am)
-    agrabahattack=cards[i]
+	i=math.random(1,bound-am)
+	agrabahattack=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 agrabahbounty=gravity
 while agrabahbounty==gravity do
-    i=math.random(1,bound-am)
-    agrabahbounty=cards[i]
+	i=math.random(1,bound-am)
+	agrabahbounty=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 banditreward=ether
 while banditreward==ether do
-    i=math.random(bound-am+1,total-(am+sp))
-    banditreward=cards[i]
+	i=math.random(bound-am+1,total-(am+sp))
+	banditreward=cards[i]
 end
 table.remove(cards,i)
 sp=sp+1
- 
+
 agrabahreward=genie
 while agrabahreward==genie do
-    i=math.random(bound-am+1,total-(am+sp))
-    agrabahreward=cards[i]
+	i=math.random(bound-am+1,total-(am+sp))
+	agrabahreward=cards[i]
 end
 table.remove(cards,i)
 sp=sp+1
- 
+
 olympusattack=olympia
 while olympusattack==olympia do
-    i=math.random(1,bound-am)
-    olympusattack=cards[i]
+	i=math.random(1,bound-am)
+	olympusattack=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 cloudreward=hipotion
 while cloudreward==hipotion do
-    i=math.random(bound-am+1,total-(am+sp))
-    cloudreward=cards[i]
+	i=math.random(bound-am+1,total-(am+sp))
+	cloudreward=cards[i]
 end
 table.remove(cards,i)
 sp=sp+1
- 
+
 olympusreward=cloud
 while olympusreward==cloud do
-    i=math.random(bound-am+1,total-(am+sp))
-    olympusreward=cards[i]
+	i=math.random(bound-am+1,total-(am+sp))
+	olympusreward=cards[i]
 end
 table.remove(cards,i)
 sp=sp+1
- 
+
 olympusktr=metalchocobo
 while olympusktr==metalchocobo do
-    i=math.random(1,bound-am)
-    olympusktr=cards[i]
+	i=math.random(1,bound-am)
+	olympusktr=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 wonderlandattack=ladyluck
 while wonderlandattack==ladyluck do
-    i=math.random(1,bound-am)
-    wonderlandattack=cards[i]
+	i=math.random(1,bound-am)
+	wonderlandattack=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 wonderlandbounty=stop
 while wonderlandbounty==stop do
-    i=math.random(1,bound-am)
-    wonderlandbounty=cards[i]
+	i=math.random(1,bound-am)
+	wonderlandbounty=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 monstroattack=wishingstar
 while monstroattack==wishingstar do
-    i=math.random(1,bound-am)
-    monstroattack=cards[i]
+	i=math.random(1,bound-am)
+	monstroattack=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 monstroreward=dumbo
 while monstroreward==dumbo do
-    i=math.random(bound-am+1,total-(am+sp))
-    monstroreward=cards[i]
+	i=math.random(bound-am+1,total-(am+sp))
+	monstroreward=cards[i]
 end
 table.remove(cards,i)
 sp=sp+1
- 
+
 halloweentownattack=pumpkinhead
 while halloweentownattack==pumpkinhead do
-    i=math.random(1,bound-am)
-    halloweentownattack=cards[i]
+	i=math.random(1,bound-am)
+	halloweentownattack=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 larxeneireward=thunder
 while larxeneireward==thunder do
-    i=math.random(1,bound-am)
-    larxeneireward=cards[i]
+	i=math.random(1,bound-am)
+	larxeneireward=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 atlanticaattack=crabclaw
 while atlanticaattack==crabclaw do
-    i=math.random(1,bound-am)
-    atlanticaattack=cards[i]
+	i=math.random(1,bound-am)
+	atlanticaattack=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 rikuireward=aero
 while rikuireward==aero do
-    i=math.random(1,bound-am)
-    rikuireward=cards[i]
+	i=math.random(1,bound-am)
+	rikuireward=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 neverlandattack=fairyharp
 while neverlandattack==fairyharp do
-    i=math.random(1,bound-am)
-    neverlandattack=cards[i]
+	i=math.random(1,bound-am)
+	neverlandattack=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 neverlandreward=tinkerbell
 while neverlandreward==tinkerbell do
-    i=math.random(bound-am+1,total-(am+sp))
-    neverlandreward=cards[i]
+	i=math.random(bound-am+1,total-(am+sp))
+	neverlandreward=cards[i]
 end
 table.remove(cards,i)
 sp=sp+1
- 
+
 hollowbastionattack=divinerose
 while hollowbastionattack==divinerose do
-    i=math.random(1,bound-am)
-    hollowbastionattack=cards[i]
+	i=math.random(1,bound-am)
+	hollowbastionattack=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 hollowbastionktr=mushu
 while hollowbastionktr==mushu do
-    i=math.random(bound-am+1,total-(am+sp))
-    hollowbastionktr=cards[i]
+	i=math.random(bound-am+1,total-(am+sp))
+	hollowbastionktr=cards[i]
 end
 table.remove(cards,i)
 sp=sp+1
- 
+
 hundredacrewoodattack=spellbinder
 while hundredacrewoodattack==spellbinder do
-    i=math.random(1,bound-am)
-    hundredacrewoodattack=cards[i]
+	i=math.random(1,bound-am)
+	hundredacrewoodattack=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 hundredacrewoodsummon=bambi
 while hundredacrewoodsummon==bambi do
-    i=math.random(bound-am+1,total-(am+sp))
-    hundredacrewoodsummon=cards[i]
+	i=math.random(bound-am+1,total-(am+sp))
+	hundredacrewoodsummon=cards[i]
 end
 table.remove(cards,i)
 sp=sp+1
- 
+
 hundredacrewooditem=elixir
 while hundredacrewooditem==elixir do
-    i=math.random(bound-am+1,total-(am+sp))
-    hundredacrewooditem=cards[i]
+	i=math.random(bound-am+1,total-(am+sp))
+	hundredacrewooditem=cards[i]
 end
 table.remove(cards,i)
 sp=sp+1
- 
+
 vexenreward=megaether
 while vexenreward==megaether do
-    i=math.random(bound-am+1,total-(am+sp))
-    vexenreward=cards[i]
+	i=math.random(bound-am+1,total-(am+sp))
+	vexenreward=cards[i]
 end
 table.remove(cards,i)
 sp=sp+1
- 
+
 destinyislandsreward=oathkeeper
 while destinyislandsreward==oathkeeper do
-    i=math.random(1,bound-am)
-    destinyislandsreward=cards[i]
+	i=math.random(1,bound-am)
+	destinyislandsreward=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 destinyislandsktr=megalixir
 while destinyislandsktr==megalixir do
-    i=math.random(bound-am+1,total-(am+sp))
-    destinyislandsktr=cards[i]
+	i=math.random(bound-am+1,total-(am+sp))
+	destinyislandsktr=cards[i]
 end
 table.remove(cards,i)
 sp=sp+1
- 
+
 rikuivreward=megapotion
 rikuivreward=cards[5]
- 
+
 larxeneiireward=oblivion
 while larxeneiireward==oblivion do
-    i=math.random(1,bound-am)
-    larxeneiireward=cards[i]
+	i=math.random(1,bound-am)
+	larxeneiireward=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 postattacka=diamonddust
 while postattacka==diamonddust do
-    i=math.random(1,bound-am)
-    postattacka=cards[i]
+	i=math.random(1,bound-am)
+	postattacka=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 postattackb=onewingedangel
 while postattackb==onewingedangel do
-    i=math.random(1,bound-am)
-    postattackb=cards[i]
+	i=math.random(1,bound-am)
+	postattackb=cards[i]
 end
 table.remove(cards,i)
 am=am+1
- 
+
 finalattack=ultimaweapon
 finalattack=cards[1]
 table.remove(cards,i)
- 
+
 defaultdeck={}
 cardindex=1
 value=math.random(0,4)
 defaultdeck[1]=defaultitem.id+(value*2)
 totalcp=defaultitem.cp[(value*2)+1]
 maxcp=275
- 
+
 while cardindex<15 do
-    cardindex=cardindex+1
-    cardtype=math.random(3)
-    if cardtype==1 then
-        currentcard=defaultattack
-        --print("attack")
-    elseif cardtype==2 then
-        currentcard=defaultmagic
-        --print("magic")
-    elseif cardtype==3 then
-        currentcard=defaultwild
-        --print("wild")
-    end
-    value=math.random(0,9)
-    --print(currentcard)
-    --if totalcp+currentcard.cp[value+1]>maxcp then
-    --  break
-    --else
-        defaultdeck[cardindex]=currentcard.id+value
-        totalcp=totalcp+currentcard.cp[value+1]
-    --end
+	cardindex=cardindex+1
+	cardtype=math.random(3)
+	if cardtype==1 then
+		currentcard=defaultattack
+		--print("attack")
+	elseif cardtype==2 then
+		currentcard=defaultmagic
+		--print("magic")
+	elseif cardtype==3 then
+		currentcard=defaultwild
+		--print("wild")
+	end
+	value=math.random(0,9)
+	--print(currentcard)
+	--if totalcp+currentcard.cp[value+1]>maxcp then
+	--	break
+	--else
+		defaultdeck[cardindex]=currentcard.id+value
+		totalcp=totalcp+currentcard.cp[value+1]
+	--end
 end
- 
- 
+
+
 memory.usememorydomain("ROM")
- 
+
 --Starting deck
 memory.writebyte(0xAB8D0,defaultdeck[1]/2)
 address=0xAB882
 for i=2,14 do
-    memory.writebyte(address,defaultdeck[i])
-    address=address+6
+	memory.writebyte(address,defaultdeck[i])
+	address=address+6
 end
 memory.writebyte(0xAB8D8,defaultdeck[15])
- 
+
 --Fight rewards
 memory.writebyte(0x62840,leonreward.id/2+math.random(0,4))
 memory.writebyte(0x96B28,axelreward.id+math.random(0,9))
@@ -458,7 +458,7 @@ memory.write_u16_le(0x96BB8,banditreward.id+math.random(0,9))
 memory.writebyte(0x628D0,agrabahreward.id/2+math.random(0,4))
 memory.write_u16_le(0x96B4C,cloudreward.id+math.random(0,9))
 memory.writebyte(0x628E4,olympusreward.id/2+math.random(0,4))
-memory.write_u16_le(0x96BAC,monstroreward.id/2+math.random(0,4))
+memory.write_u16_le(0x96BAC,monstroreward.id+math.random(0,4))
 memory.writebyte(0x96B2E,larxeneireward.id+math.random(0,9))
 memory.writebyte(0x628DA,neverlandreward.id/2+math.random(0,4))
 memory.writebyte(0x96B34,rikuireward.id+math.random(0,9))
@@ -469,7 +469,7 @@ memory.writebyte(0x96B68,vexenreward.id/2+math.random(0,4))
 memory.writebyte(0x628B0,destinyislandsreward.id+math.random(0,9))
 memory.writebyte(0x96B70,rikuivreward.id/2+math.random(0,4))
 memory.writebyte(0x628A2,larxeneiireward.id+math.random(0,9))
- 
+
 --Drop table
 memory.write_u16_le(0x185814E,defaultattack.id)
 memory.write_u16_le(0x1858196,defaultmagic.id)
@@ -509,7 +509,7 @@ memory.write_u16_le(0x1858182,larxeneiireward.id)
 memory.write_u16_le(0x185818A,postattacka.id)
 memory.write_u16_le(0x185818E,postattackb.id)
 memory.write_u16_le(0x1858186,finalattack.id)
- 
+
 --Shop table
 memory.writebyte(0x10410E,defaultattack.id)
 memory.writebyte(0x104112,defaultmagic.id)
@@ -551,36 +551,36 @@ memory.write_u16_le(0x1993418,larxeneiireward.id)
 memory.write_u16_le(0x1993428,postattacka.id)
 memory.write_u16_le(0x1993438,postattackb.id)
 memory.write_u16_le(0x1993448,finalattack.id)
- 
+
 --Enemy cards
 oldenemycards={shadow,soldier,largebody,rednocturne,bluerhapsody,yellowopera,greenrequiem,powerwild,bouncywild,airsoldier,bandit,fatbandit,barrelspider,searchghost,seaneon,screwdiver,aquatank,wightknight,gargoyle,pirate,airpirate,darkball,defender,wyvern,wizard,neoshadow,whitemushroom,blackfungus,creeperplant,tornadostep,crescendo,guardarmor,parasitecage,trickmaster,darkside,cardsoldier,hades,jafar,oogieboogie,ursula,hook,dragonmaleficent,riku,axel,larxene,vexen,marluxia,lexaeus,ansem}
- 
+
 failure=true
 while failure==true do
-    failure=false
-    enemycards={unpack(oldenemycards)}
-    newenemycards={}
-    for i=1,table.getn(oldenemycards) do
-        newenemycards[i]=oldenemycards[i]
-        while newenemycards[i]==oldenemycards[i] do
-            index=math.random(1,table.getn(enemycards))
-            newenemycards[i]=enemycards[index]
-        end
-        table.remove(enemycards,index)
-    end
-    if (newenemycards[table.getn(newenemycards)]==oldenemycards[table.getn(oldenemycards)]) then
-        failure=true
-    end
+	failure=false
+	enemycards={unpack(oldenemycards)}
+	newenemycards={}
+	for i=1,table.getn(oldenemycards) do
+		newenemycards[i]=oldenemycards[i]
+		while newenemycards[i]==oldenemycards[i] do
+			index=math.random(1,table.getn(enemycards))
+			newenemycards[i]=enemycards[index]
+		end
+		table.remove(enemycards,index)
+	end
+	if (newenemycards[table.getn(newenemycards)]==oldenemycards[table.getn(oldenemycards)]) then
+		failure=true
+	end
 end
- 
+
 for i=1,table.getn(newenemycards) do
-    if newenemycards[i]==darkside or newenemycards[i]==jafar or newenemycards[i]==dragonmaleficent or newenemycards[i]==vexen then
-        memory.writebyte(newenemycards[i].address,newenemycards[i].id/4)
-    else
-        memory.write_u16_le(oldenemycards[i].address,newenemycards[i].id)
-    end
+	if newenemycards[i]==darkside or newenemycards[i]==jafar or newenemycards[i]==dragonmaleficent or newenemycards[i]==vexen then
+		memory.writebyte(oldenemycards[i].address,newenemycards[i].id/4)
+	else
+		memory.write_u16_le(oldenemycards[i].address,newenemycards[i].id)
+	end
 end
- 
+
 --Spoiler display
 if spoilers==true then
 console.clear()
@@ -623,9 +623,9 @@ print("Post-game Attack A: "..postattacka.name)
 print("Post-game Attack B: "..postattackb.name)
 print("Final Attack: "..finalattack.name)
 for i=1,table.getn(newenemycards) do
-    print(oldenemycards[i].name.." Enemy Card: "..newenemycards[i].name)
+	print(oldenemycards[i].name.." Enemy Card: "..newenemycards[i].name)
 end
 print()
 end
- 
+
 joypad.set({["A"]=true,["B"]=true,["Select"]=true,["Start"]=true})
