@@ -1,0 +1,254 @@
+080AB882: Sets the first card of the starting deck
+080AB888: Sets the second card of the starting deck
+
+8013412C: KK damage (set to FFFF for instakill)
+
+08F7D638: Enemy enemy card table
+
+02039CF4: lionheart journal flag
+02039D14: lionheart journal new flag
+
+0808466E: same (-96 tho)
+08084782: same (-128)
+080848C2: sets a bit for the starting journal (-128)
+080847B6: same (-128)
+
+0985814E: default drop
+09858196: drop table (doesn't affect moogle shops)
+
+08062840: leon reward location
+08096B28: Axel I fight reward address
+
+08096AC8: jafar reward (gets quadrupled)
+
+02039cde: obtained flag for all cards
+
+09993458: shop tables!!
+
+0810410E: default shop attack card (kingdom key normally)
+08104112: default shop magic card (cure normally)
+08104116: default shop item card (potion normally; gets doubled)
+
+02039cbc: flag for collecting cards? but it doesn't affect drops so its kinda pointless
+
+080AB8D5: Left shifts the otherwise C1 card (x2)
+
+0800A26C: Similar to below, but earlier (so better)
+0800A34C: Changes what enemy appears, not their deck though (ends in 80 for Axel, 50 for Larxene)
+
+08f7ae20: one of axel's cards
+0807E4F4: some array of deck ID's for human fights
+
+08009fb8: array of heartless boss pointers (changes boss and arena though)
+
+02039CBC: Sleight obtained flags
+
+FIGHTLOADER 1: 03007498 (changes enemy and location) (same frame as enemy card sprite is set)
+FIGHTLOADER 2: 02033F0C (changes enemy deck, reward, and result) (2 frames before player icon displays) (setting it late gives Axel I Firetooth?)
+Values:
+Lower values are for different encounters, all taking place in the world you're in
+92: Castle Oblivion Encounter (Wonderland Enemies)
+93: Castle Oblivion Encounter (Empty)
+94: Guard Armor
+95: Jafar
+96: Trickmaster
+97: Ursula
+98: Parasite Cage
+99: Dragon Maleficent
+9A: Darkside
+9B: Oogie Boogie
+9C: Final Marluxia
+9D: Leon (In hallway?) (Boss, actually killable, drops Hook)
+9E: Hook
+9F: Cloud
+A0: Hades
+A1: Riku Replica
+A2: Axel
+A3: Larxene
+A4: Vexen
+A5: Marluxia
+A6: Ansem I
+A7: Lexaeus
+A8: Riku Replica
+A9: Riku Replica
+AA: Riku Replica
+AB: Riku Replica
+AC: Riku Replica VI
+AD: Axel
+AE: Larxene
+AF: Vexen II
+B0: Vexen
+B1: Ansem II
+B2: Marluxia (Tutorial)
+B3: Leon (Tutorial)
+B4-6(+?): Leon (Tutorial) (In hallway?)
+
+Possible HP values:
+019068
+031948
+032B2C
+032C88
+032C48
+032C88
+
+Possible HP display values:
+03271E
+0329BE
+
+020324C0: Guard Armor card sprite ID  (Origin: 01991F44)
+Guard Armor fight reward address:  00096AC4
+Axel card sprite origin: 0013F774
+Axel card sprite pointer address: 00052860
+Axel I fight reward address: 00096B28
+Cloud card sprite pointer address: 0004A038
+Hades card sprite pointer address: 0004E568
+0813FDF4
+Enemy Attack Card Sprite Value (+2,+3 on HP):
+00: Shadow (0013D3E8)
+01: Red Nocturne
+02: Blue Rhapsody
+03: Yellow Nocturne
+04: Green Requiem
+05: Sea Neon
+06: White Mushroom
+07: Black Fungus (high defense)
+08: Black Fungus (low defense)
+09: Soldier
+0A: Powerwild
+0B: Bouncywild
+0C: Air Soldier
+0D: Bandit
+0E: Barrel Spider
+0F: Search Ghost
+10: Screwdriver
+11: Wight Knight
+12: Gargoyle
+13: Pirate
+14: Air Pirate
+15: Darkball
+16: Wyvern
+17: Wizard
+18: Neoshadow
+19: Large Body
+1A: Fat Bandit
+1B: Aquatank
+1C: Defender
+1D: Tornado Step
+1E: Crescendo
+1F: Creeper Plant
+20: Guard Armor
+21: Jafar
+22: Trickmaster
+23: Ursula
+24: Parasite Cage
+25: Maleficent
+26: Darkside
+27: Oogie Boogie
+28: Marluxia II
+29: Trickmaster (Leon)
+2A: Trickmaster (Hook)
+2B: Trickmaster (Cloud)
+2C: Trickmaster (Hades)
+2D: Trickmaster (Riku)
+2E: Card Soldier (Spade)
+2F: Card Soldier (Heart)
+30: Trickmaster (Axel) "axcel"
+31: Trickmaster (Larxene) "laxene"
+32: Trickmaster (Vexen) "vixen"
+33: Trickmaster (Robe/Marluxia) "mahluxia"
+34: Trickmaster (Ansem)
+35: Trickmaster (Lexaeus) "lexceus"
+36+: Game crashes upon enemy attack
+
+02034030ish: Card RNG
+0: Barrel position, particle RNG
+1: Value?
+=0: 0
+=1: 1
+=2: 2
+=3: 2
+=4: 3
+=5: 4
+=6: 4
+=7: 5
+=8: 6
+=9: 8
+=A: 0
+=B: 1
+=C: 2
+=D: 2
+=E: 3
+=F: 4
+=10: 4
+=11: 5
+=12: 6
+=13: 8
+=14: 0
+=15: 1
+=1A: 5
+=FF: 1
+2:
+3:
+4: (Affects particles?)
+5: (Affects particles?)
+6:
+7: (Affects particles?)
+8: (Affects particles?)
+9: Object Triggers (Affects value?) (No cards?)
+=00: KK0, KK0
+=01: KK1, KK0
+=02: KK1, KK0
+A:
+B: (Affects particles?)
+C:
+D: Card Type (Affects battles and map card drop?)
+=00: Kingdom Key
+=01: Kingdom Key
+=02: Kingdom Key
+=03: Kingdom Key
+=04: Kingdom Key
+=05: Kingdom Key
+=06: Kingdom Key
+=07: Kingdom Key
+=08: Kingdom Key
+=09: Kingdom Key
+=0A: Kingdom Key
+=0B: Kingdom Key
+=0C: Kingdom Key
+=0D: Blizzard
+=0E: Blizzard
+=0F: Cure
+=10: Cure
+=11: Cure
+=12: Potion
+=13: Potion
+=14: Kingdom Key
+=15: Kingdom Key?
+=16: Kingdom Key?
+=17: Kingdom Key?
+=18: Kingdom Key?
+=19: Kingdom Key?
+=1A: Kingdom Key?
+=1B: Kingdom Key?
+=1C: Kingdom Key?
+=1D: Kingdom Key?
+=1E: Kingdom Key?
+=1F: Kingdom Key?
+=20: Kingdom Key
+=21: Blizzard
+=22: Blizzard
+=2E: Kingdom Key
+=30: Kingdom Key
+=40: Kingdom Key
+=50: Cure
+=60: Kingdom Key
+=70: Kingdom Key
+=80: Kingdom Key
+=8F: Cure
+=90: Cure
+=A0: Kingdom Key
+=D0: Cure
+=E0: Kingdom Key
+=F0: Kingdom Key
+E:
+F:
