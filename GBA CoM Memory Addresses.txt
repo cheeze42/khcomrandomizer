@@ -33,22 +33,22 @@
 08104112: default shop magic card (cure normally)
 08104116: default shop item card (potion normally; gets doubled)
 
-02039cbc: flag for collecting cards? but it doesn't affect drops so its kinda pointless
-
 080AB8D5: Left shifts the otherwise C1 card (x2)
 
 0800A26C: Similar to below, but earlier (so better)
-0800A34C: Changes what enemy appears, not their deck though (ends in 80 for Axel, 50 for Larxene)
+0800A34C: Changes what enemy appears, not their deck/reward/experience/HP though (ends in 80 for Axel, 50 for Larxene)
+0807E50C: Axel's deck pointer (also changes sleights); just changing this to Larx's deck leaves an empty room when the fight ends though
+--This is because important data at the end of Axel's deck gets overwritten with Larx's cards since the space allocated isn't changed
 
 08f7ae20: one of axel's cards
-0807E4F4: some array of deck ID's for human fights
+0807E4F4: some array of deck ID's for human fights (other pointer list begins just below) but both can have weird consequences and not all bosses are there
 
 08009fb8: array of heartless boss pointers (changes boss and arena though)
 
 02039CBC: Sleight obtained flags
 
-FIGHTLOADER 1: 03007498 (changes enemy and location) (same frame as enemy card sprite is set)
-FIGHTLOADER 2: 02033F0C (changes enemy deck, reward, and result) (2 frames before player icon displays) (setting it late gives Axel I Firetooth?)
+FIGHTLOADER 1: 03007498 (changes everything) (same frame as enemy card sprite is set)
+FIGHTLOADER 2: 02033F0C (changes deck, reward, and result) (2 frames before player icon displays) (setting it late gives Axel I Firetooth?)
 Values:
 Lower values are for different encounters, all taking place in the world you're in
 92: Castle Oblivion Encounter (Wonderland Enemies)
@@ -67,9 +67,9 @@ Lower values are for different encounters, all taking place in the world you're 
 9F: Cloud
 A0: Hades
 A1: Riku Replica
-A2: Axel
-A3: Larxene
-A4: Vexen
+A2: Axel II
+A3: Larxene II
+A4: Vexen II
 A5: Marluxia
 A6: Ansem I
 A7: Lexaeus
@@ -78,8 +78,8 @@ A9: Riku Replica
 AA: Riku Replica
 AB: Riku Replica
 AC: Riku Replica VI
-AD: Axel
-AE: Larxene
+AD: Axel II
+AE: Larxene II
 AF: Vexen II
 B0: Vexen
 B1: Ansem II

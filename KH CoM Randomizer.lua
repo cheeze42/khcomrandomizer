@@ -89,8 +89,8 @@ ansem={name="Ansem",id=0x234,address=0x18581EA}
 
 --CONFIG
 --Set 02039CBC to FF, 02039CC4 to 22, and 02039CC5 to 80 for all level up sleights
-spoilers=true
-seed=2
+spoilers=false
+seed=0
 
 oldcards={kingdomkey,threewishes,crabclaw,pumpkinhead,fairyharp,wishingstar,spellbinder,metalchocobo,olympia,lionheart,ladyluck,divinerose,oathkeeper,oblivion,diamonddust,onewingedangel,ultimaweapon,fire,blizzard,thunder,cure,gravity,stop,aero,simba,genie,bambi,dumbo,tinkerbell,mushu,cloud,potion,hipotion,megapotion,ether,megaether,elixir,megalixir}
 cards={unpack(oldcards)}
@@ -107,15 +107,15 @@ math.random()
 
 --TODO:
 ---Variety of randomization
-----Human bosses
 ----Sleights
 ----World cards
+----Human bosses
 ----Enemies/enemy encounters
 ----Friend cards
 ----Heartless bosses??
 ----Riku's story:
 -----Enemy cards
-------Bosses seem to check whether you've beaten the corresponding boss, then add the correct card to your deck; not the same as what card actually drops
+------Bosses seem to check whether you've obtained the corresponding card, then add the correct card to your deck; not the same as what card actually drops
 -----Bosses
 -----World cards
 -----Set up postgame rewards obtained flags
@@ -398,8 +398,8 @@ end
 table.remove(cards,i)
 sp=sp+1
 
-rikuivreward=megapotion
-rikuivreward=cards[5]
+rikuiiireward=megapotion
+rikuiiireward=cards[5]
 
 larxeneiireward=oblivion
 while larxeneiireward==oblivion do
@@ -503,7 +503,7 @@ memory.write_u16_le(0x62900,hundredacrewooditem.id+math.random(0,9))
 memory.write_u16_le(0x6290C,hundredacrewoodsummon.id+math.random(0,9))
 memory.writebyte(0x96B68,vexenreward.id/2+math.random(0,4))
 memory.writebyte(0x628B0,destinyislandsreward.id+math.random(0,9))
-memory.writebyte(0x96B70,rikuivreward.id/2+math.random(0,4))
+memory.writebyte(0x96B70,rikuiiireward.id/2+math.random(0,4))
 memory.writebyte(0x628A2,larxeneiireward.id+math.random(0,9))
 
 
@@ -574,8 +574,8 @@ memory.write_u16_le(0x185817E,destinyislandsreward.id)
 memory.write_u16_le(0x185817C,destinyislandsreward.bit)
 memory.write_u16_le(0x18581E2,destinyislandsktr.id)
 memory.write_u16_le(0x18581E0,destinyislandsktr.bit)
-memory.write_u16_le(0x18581D2,rikuivreward.id)
-memory.write_u16_le(0x18581D0,rikuivreward.bit)
+memory.write_u16_le(0x18581D2,rikuiiireward.id)
+memory.write_u16_le(0x18581D0,rikuiiireward.bit)
 memory.write_u16_le(0x1858182,larxeneiireward.id)
 memory.write_u16_le(0x1858180,larxeneiireward.bit)
 memory.write_u16_le(0x185818A,postattacka.id)
@@ -655,8 +655,8 @@ memory.write_u16_le(0x1993408,destinyislandsreward.id)
 memory.write_u16_le(0x199340C,destinyislandsreward.bit)
 memory.write_u16_le(0x1993598,destinyislandsktr.id)
 memory.write_u16_le(0x199359C,destinyislandsktr.bit)
-memory.write_u16_le(0x1993578,rikuivreward.id)
-memory.write_u16_le(0x199357C,rikuivreward.bit)
+memory.write_u16_le(0x1993578,rikuiiireward.id)
+memory.write_u16_le(0x199357C,rikuiiireward.bit)
 memory.write_u16_le(0x1993418,larxeneiireward.id)
 memory.write_u16_le(0x199341C,larxeneiireward.bit)
 memory.write_u16_le(0x1993428,postattacka.id)
@@ -767,7 +767,7 @@ if spoilers==true then
 	print("Vexen I Reward: "..vexenreward.name)
 	print("Destiny Islands Reward: "..destinyislandsreward.name)
 	print("Destiny Islands KTR: "..destinyislandsktr.name)
-	print("Riku III Reward: "..rikuivreward.name)
+	print("Riku III Reward: "..rikuiiireward.name)
 	print("Larxene II Reward: "..larxeneiireward.name)
 	print("Post-game Attack A: "..postattacka.name)
 	print("Post-game Attack B: "..postattackb.name)
